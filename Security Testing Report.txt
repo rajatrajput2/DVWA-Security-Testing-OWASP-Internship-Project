@@ -1,0 +1,52 @@
+1. SQL Injection (SQLi)
+
+Test Performed: Injected payload 1' OR '1'='1 in User ID field.
+
+Observation: Application exposed sensitive data (usernames, passwords).
+
+Impact: Bypass authentication and database data leakage.
+
+Mitigation: Use Prepared Statements and strict input validation.
+
+Screenshot: (insert your SQLi result screenshot here).
+
+2. Cross-Site Scripting (XSS)
+
+Stored XSS Test: Injected <script>alert('Stored XSS')</script> in comment. Payload executed on reload.
+
+Reflected XSS Test: Injected <script>alert('Reflected XSS')</script> in URL query parameter. Payload executed instantly.
+
+Impact: Attackers can hijack sessions, steal cookies, deface content.
+
+Mitigation: Input validation, output encoding, and Content Security Policy (CSP).
+
+Screenshot: (insert stored/reflected XSS screenshot here).
+
+3. Cross-Site Request Forgery (CSRF)
+
+Test Performed: Crafted malicious password change request via Burp Suite.
+
+Observation: Password changed without user’s consent when token validation was weak.
+
+Impact: Account takeover.
+
+Mitigation: Enforce CSRF tokens, SameSite cookies.
+
+Screenshot: (insert CSRF attack result screenshot).
+
+4. Burp Suite – Request Manipulation
+
+Test Performed: Intercepted login request, modified credentials.
+
+Observation: Application allowed replayed/modified requests.
+
+Impact: Potential brute-force or tampering risk.
+
+Mitigation: Secure session handling, rate limiting.
+
+Screenshot: (insert Burp intercept screenshot).
+
+✅ Conclusion
+
+The DVWA lab successfully demonstrated common web vulnerabilities (SQLi, XSS, CSRF, Request Manipulation).
+These findings emphasize the importance of secure coding practices, proper input validation, and strong session/token handling to defend against real-world attacks.

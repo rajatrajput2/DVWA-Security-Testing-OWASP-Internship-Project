@@ -1,0 +1,68 @@
+Web Security Testing – DVWA Lab
+1. SQL Injection (SQLi)
+
+Attack Scenario:
+
+Injected payload 1' OR '1'='1 in the User ID field.
+
+Application returned all user records, bypassing authentication logic.
+
+Mitigation:
+
+Use Prepared Statements (Parameterized Queries).
+
+Validate and sanitize all user inputs.
+
+2. Cross-Site Scripting (XSS)
+
+Stored XSS:
+
+Injected <script>alert('Stored XSS')</script> in comment field.
+
+Script executed whenever page was loaded, affecting all users.
+
+Reflected XSS:
+
+Injected <script>alert('Reflected XSS')</script> in query parameter.
+
+Payload executed instantly in browser.
+
+Mitigation:
+
+Apply input validation & output encoding.
+
+Implement Content Security Policy (CSP) headers.
+
+3. Cross-Site Request Forgery (CSRF)
+
+Attack Scenario:
+
+Crafted a malicious form to change a user’s password without their consent.
+
+Intercepted and replayed requests in Burp Suite to demonstrate the flaw.
+
+Mitigation:
+
+Implement CSRF tokens for sensitive actions.
+
+Enforce SameSite cookies to reduce cross-origin risks.
+
+4. Burp Suite Exploitation
+
+Attack Scenario:
+
+Intercepted login request with Burp Suite.
+
+Modified and replayed requests to manipulate parameters.
+
+Mitigation:
+
+Enforce secure session handling.
+
+Apply rate limiting and strong authentication controls.
+
+
+Closing Note
+
+This project demonstrates common OWASP Top 10 web vulnerabilities in a controlled DVWA lab.
+Exploits were successfully performed, and mitigations were applied to highlight secure development practices.
